@@ -1,0 +1,84 @@
+Uri: https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css
+File Name: C:\Downloaded Web Sites\radioamante.com\npm\swiper@11\swiper-bundle.min.css
+Content Type: text/css
+
+Uri: https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js
+File Name: C:\Downloaded Web Sites\radioamante.com\npm\swiper@11\swiper-bundle.min.js
+Content Type: application/javascript
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js
+File Name: C:\Downloaded Web Sites\radioamante.com\ajax\libs\color-thief\2.3.0\color-thief.umd.js
+Content Type: application/javascript
+
+Uri: https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;800&display=swap
+File Name: C:\Downloaded Web Sites\radioamante.com\css2
+Content Type: text/css
+
+Uri: https://fonts.gstatic.com/s/montserrat/v29/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Ew-.ttf
+File Name: C:\Downloaded Web Sites\radioamante.com\s\montserrat\v29\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Ew-.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v29/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM70w-.ttf
+File Name: C:\Downloaded Web Sites\radioamante.com\s\montserrat\v29\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM70w-.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v29/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr70w-.ttf
+File Name: C:\Downloaded Web Sites\radioamante.com\s\montserrat\v29\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr70w-.ttf
+Content Type: font/ttf
+
+Uri: https://radioamante.com/
+File Name: C:\Downloaded Web Sites\radioamante.com\index.htm
+Content Type: text/html
+
+Uri: https://radioamante.com/assets/logo.png
+File Name: C:\Downloaded Web Sites\radioamante.com\assets\logo.png
+Content Type: image/png
+
+Uri: https://radioamante.com/css/icons/remixicon.css
+File Name: C:\Downloaded Web Sites\radioamante.com\css\icons\remixicon.css
+Content Type: text/css
+
+Uri: https://radioamante.com/css/icons/remixicon.eot?t=1727398268584
+File Name: C:\Downloaded Web Sites\radioamante.com\css\icons\remixicon.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://radioamante.com/css/icons/remixicon.svg?t=1727398268584
+File Name: C:\Downloaded Web Sites\radioamante.com\css\icons\remixicon.svg
+Content Type: image/svg+xml
+
+Uri: https://radioamante.com/css/icons/remixicon.ttf?t=1727398268584
+File Name: C:\Downloaded Web Sites\radioamante.com\css\icons\remixicon.ttf
+Content Type: font/ttf
+
+Uri: https://radioamante.com/css/icons/remixicon.woff2?t=1727398268584
+File Name: C:\Downloaded Web Sites\radioamante.com\css\icons\remixicon.woff2
+Content Type: font/woff2
+
+Uri: https://radioamante.com/css/icons/remixicon.woff?t=1727398268584
+File Name: C:\Downloaded Web Sites\radioamante.com\css\icons\remixicon.woff
+Content Type: font/woff
+
+Uri: https://radioamante.com/css/main.min.css
+File Name: C:\Downloaded Web Sites\radioamante.com\css\main.min.css
+Content Type: text/css
+
+Uri: https://radioamante.com/custom.css
+File Name: C:\Downloaded Web Sites\radioamante.com\custom.css
+Content Type: text/css
+
+Uri: https://radioamante.com/js/main.min.js
+File Name: C:\Downloaded Web Sites\radioamante.com\js\main.min.js
+Content Type: application/javascript
+
+Uri: https://radioamante.com/manifest.json
+File Name: C:\Downloaded Web Sites\radioamante.com\manifest.json
+Content Type: application/json
+
+Uri: https://vjs.zencdn.net/8.10.0/video-js.css
+File Name: C:\Downloaded Web Sites\radioamante.com\8.10.0\video-js.css
+Content Type: text/css
+
+Uri: https://vjs.zencdn.net/8.10.0/video.min.js
+File Name: C:\Downloaded Web Sites\radioamante.com\8.10.0\video.min.js
+Content Type: text/javascript
+
