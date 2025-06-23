@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -18,12 +18,61 @@
   <link href="css2?family=Montserrat:wght@300;700;800&display=swap" rel="stylesheet">
   <script src="8.10.0/video.min.js" defer=""></script>
   <script src="ajax/libs/color-thief/2.3.0/color-thief.umd.js" defer=""></script>
+
+  <!-- Firebase SDKs -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBE7WhOpjB9q_z3Bx_N6PtPEJuV6wS8qLk",
+      authDomain: "radioaventura-1e6e0.firebaseapp.com",
+      databaseURL: "https://radioaventura-1e6e0-default-rtdb.firebaseio.com",
+      projectId: "radioaventura-1e6e0",
+      storageBucket: "radioaventura-1e6e0.firebasestorage.app",
+      messagingSenderId: "4896086531",
+      appId: "1:4896086531:web:9dbafd9a896acc7754cc36",
+      measurementId: "G-8WM1YFRLWR"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    // Make firebaseConfig globally available for other modules
+    window.firebaseConfig = firebaseConfig;
+  </script>
+
   <script src="js/main.min.js" defer=""></script>
+  <script type="module" src="js/firebase.js"></script>
+
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <script src="npm/swiper%4011/swiper-bundle.min.js" defer=""></script>
   <link href='manifest.json' rel='manifest'>
   <link rel="stylesheet" href="custom.css">
-  <script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+    import { listenForStreamsConfig } from "./js/firebase.js";
+
+    // Initialize Firebase app and database once globally
+    if (!window.firebaseApp) {
+      window.firebaseApp = initializeApp({
+        apiKey: "AIzaSyBE7WhOpjB9q_z3Bx_N6PtPEJuV6wS8qLk",
+        authDomain: "radioaventura-1e6e0.firebaseapp.com",
+        databaseURL: "https://radioaventura-1e6e0-default-rtdb.firebaseio.com",
+        projectId: "radioaventura-1e6e0",
+        storageBucket: "radioaventura-1e6e0.firebasestorage.app",
+        messagingSenderId: "4896086531",
+        appId: "1:4896086531:web:9dbafd9a896acc7754cc36",
+        measurementId: "G-8WM1YFRLWR"
+      });
+      window.firebaseDb = getDatabase(window.firebaseApp);
+    }
+
+    // Initialize window.streams with default values
     window.streams = {
       sliderTiming: 10000,
       carouselTiming: 5000,
@@ -35,7 +84,32 @@
       module_video_tops: true,
       module_news: true,
       module_team: true,
-    }
+    };
+
+    // Listen for streams config changes in Firebase and update window.streams
+    listenForStreamsConfig();
+
+    // Listen for metadata updates and update UI accordingly
+    window.addEventListener('metadataUpdated', (event) => {
+      const metadata = event.detail;
+      // Example: Update elements with IDs 'song-title', 'song-artist', 'song-album', 'song-artwork'
+      const titleEl = document.getElementById('song-title');
+      const artistEl = document.getElementById('song-artist');
+      const albumEl = document.getElementById('song-album');
+      const artworkEl = document.getElementById('song-artwork');
+
+      if (titleEl) titleEl.textContent = metadata.title || '';
+      if (artistEl) artistEl.textContent = metadata.artist || '';
+      if (albumEl) albumEl.textContent = metadata.album || '';
+      if (artworkEl) {
+        if (metadata.artwork) {
+          artworkEl.src = metadata.artwork;
+          artworkEl.style.display = 'block';
+        } else {
+          artworkEl.style.display = 'none';
+        }
+      }
+    });
   </script>
 </head>
 <body class="preload">
@@ -72,7 +146,7 @@
               <!-- PLAYER -->
               <div class="relative tilt-box">
                 <div class="player-picture flex-none">
-                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjYGBgaAAAAIUAgbVRNccAAAAASUVORK5CYII=" alt="picture" height="300" width="300">
+                  <img id="player-cover" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjYGBgaAAAAIUAgbVRNccAAAAASUVORK5CYII=" alt="cover" height="300" width="300">
                 </div>
                 <!-- CONTROLS -->
                 <div class="player-controls flex items-center items-start g-0.5">
@@ -108,8 +182,8 @@
               <!-- INFO -->
               <div class="player-info l:text-left text-center uppercase">
                 <p class="color-text-inverse flex l:justify-start justify-center fs-7 fw-600 g-0.5 items-center"><span class="badge">On air</span>Reproduciendo</p>
-                <h1 class="player-title station-name truncante-line color-title-inverse song-name m:fs-2 fs-3 fw-700">Radio Aventura</h1>
-                <p class="player-description station-description song-artist color-text-inverse m:fs-5 fs-6 fw-600">Artista</p>
+                <h1 id="song-title" class="player-title station-name truncante-line color-title-inverse song-name m:fs-2 fs-3 fw-700">Título Canción</h1>
+                <p id="song-artist" class="player-description station-description song-artist color-text-inverse m:fs-5 fs-6 fw-600">Artista</p>
 
                 <div class="player-actions flex wrap justify-center m:justify-start g-0.5 mt-1">
                   <!-- Reproducir/Pausar -->
